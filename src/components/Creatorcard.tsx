@@ -11,6 +11,8 @@ import {
 import { toast } from "sonner";
 import { useState } from "react";
 import Link from "next/link";
+import Avatar_placeholder from "@/assets/avatar_placeholder.png";
+import Image from "next/image";
 
 export default function Creatorcard({
   name,
@@ -37,8 +39,11 @@ export default function Creatorcard({
       <div className="flex gap-3 items-center justify-center">
         <Avatar>
           <AvatarImage src={avatar} />
-          <AvatarFallback>PP</AvatarFallback>
+          <AvatarFallback>
+            <Image src={Avatar_placeholder} alt="avatar" />
+          </AvatarFallback>
         </Avatar>
+
         <div className="font-medium text-lg">{name}</div>
       </div>
 

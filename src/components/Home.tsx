@@ -40,33 +40,41 @@ export default function Home() {
             className="pl-14 text-base"
           />
         </div>
-        <h1 className="font-bold text-2xl mt-6">Featured Creators</h1>
-        <div className="flex flex-col gap-4 mt-4">
-          {featuredCreators?.data?.creators?.length !== 0 &&
-            featuredCreators?.data?.creators?.map(
-              (featuredCreator: any, index: number) => (
-                <Creatorcard
-                  key={index}
-                  name={featuredCreator.name}
-                  avatar={featuredCreator.avatar}
-                  username={featuredCreator.username}
-                />
-              )
-            )}
-        </div>
+        {featuredCreators?.data?.featured?.length !== 0 ? (
+          <div>
+            <h1 className="font-bold text-2xl mt-6">Featured Creators</h1>
+            <div className="flex flex-col gap-4 mt-4">
+              {featuredCreators?.data?.featured?.map(
+                (featuredCreator: any, index: number) => (
+                  <Creatorcard
+                    key={index}
+                    name={featuredCreator.name}
+                    avatar={featuredCreator.avatar}
+                    username={featuredCreator.username}
+                  />
+                )
+              )}
+            </div>
+          </div>
+        ) : null}
 
-        <h1 className="font-bold text-2xl mt-4">Popular Creators</h1>
-        <div className="flex flex-col gap-4 mt-4">
-          {creatorsData?.data?.creators?.length !== 0 &&
-            creatorsData?.data?.creators?.map((creator: any, index: number) => (
-              <Creatorcard
-                key={index}
-                name={creator.name}
-                avatar={creator.avatar}
-                username={creator.username}
-              />
-            ))}
-        </div>
+        {creatorsData?.data?.creators?.length !== 0 ? (
+          <div>
+            <h1 className="font-bold text-2xl mt-4">Popular Creators</h1>
+            <div className="flex flex-col gap-4 mt-4">
+              {creatorsData?.data?.creators?.map(
+                (creator: any, index: number) => (
+                  <Creatorcard
+                    key={index}
+                    name={creator.name}
+                    avatar={creator.avatar}
+                    username={creator.username}
+                  />
+                )
+              )}
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );
