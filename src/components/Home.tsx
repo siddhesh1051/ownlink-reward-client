@@ -1,30 +1,14 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
-import Creatorcard from "./Creatorcard";
+import Creatorcard from "@/components/Creatorcard";
 import { LucideSearch } from "lucide-react";
-import { useEffect, useState } from "react";
 import {
   useGetAllCreatorsQuery,
   useGetFeaturedCreatorsQuery,
 } from "@/redux/api/creatorApi";
 
 export default function Home() {
-  const Samplecreators = [
-    {
-      name: "Siddhesh Patil",
-      avatar: "https://github.com/shadcn.png",
-    },
-    {
-      name: "Pranav Shastri",
-      avatar: "https://github.com/shadcn.png",
-    },
-    {
-      name: "Shubham Patil",
-      avatar: "https://github.com/shadcn.png",
-    },
-  ];
-
   const { data: creatorsData } = useGetAllCreatorsQuery();
   const { data: featuredCreators } = useGetFeaturedCreatorsQuery();
 
@@ -62,16 +46,16 @@ export default function Home() {
           <div>
             <h1 className="font-bold text-2xl mt-4">Popular Creators</h1>
             <div className="flex flex-col gap-4 mt-4">
-              {creatorsData?.data?.creators?.map(
-                (creator: any, index: number) => (
+              {creatorsData?.data?.creators
+                ?.slice(0, 3)
+                ?.map((creator: any, index: number) => (
                   <Creatorcard
                     key={index}
                     name={creator.name}
                     avatar={creator.avatar}
                     username={creator.username}
                   />
-                )
-              )}
+                ))}
             </div>
           </div>
         ) : null}

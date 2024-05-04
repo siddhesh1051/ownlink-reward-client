@@ -1,6 +1,6 @@
 "use client";
 
-import { GiftIcon, Home, LucideX, User2Icon } from "lucide-react";
+import { GiftIcon, Home, LucideX, Search, User2Icon } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -16,6 +16,11 @@ export default function Sidebar({
       title: "Dashboard",
       icon: Home,
       link: "/dashboard",
+    },
+    {
+      title: "Explore",
+      icon: Search,
+      link: "/explore",
     },
     {
       title: "Rewards",
